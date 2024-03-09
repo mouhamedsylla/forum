@@ -5,6 +5,7 @@ import (
 	"forum/Api/services"
 	"forum/utils"
 	"net/http"
+	"regexp"
 	"strconv"
 )
 
@@ -22,6 +23,14 @@ func (handler *Controllers) Register() http.Handler {
 		}
 
 		user := result.(*models.User)
+		emailRegex := `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
+		validEmail := regexp.MustCompile(emailRegex).MatchString(user.Email)
+
+		if !validEmail || user.Username == "" {
+			message.Error = "Invalid email format"
+			utils.RespondWithJSON(w, message, http.StatusBadRequest)
+			return
+		}
 		models.CryptPassword(user)
 		err = handler.Storage.Insert(*user)
 
