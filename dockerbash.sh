@@ -11,7 +11,7 @@ build_image() {
 
 run_container() {
     echo "Running container..."
-    sudo docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
+    sudo docker run -d --name $CONTAINER_NAME -p 8081:8081 $IMAGE_NAME
 }
 
 stop_container() {
@@ -22,6 +22,10 @@ stop_container() {
 remove_container() {
     echo "Removing container..."
     sudo docker rm $CONTAINER_NAME
+}
+
+run_terminal() {
+    sudo docker exec -it $CONTAINER_NAME /bin/bash
 }
 
 case "$1" in
@@ -36,6 +40,9 @@ case "$1" in
         ;;
     remove)
         remove_container
+        ;;
+    terminal)
+        run_terminal
         ;;
     *)
         echo "Usage: $0 {build|run|stop|remove}"

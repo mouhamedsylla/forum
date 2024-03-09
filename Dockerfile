@@ -28,4 +28,4 @@ RUN make app
 WORKDIR /app
 
 # Command to run the start script when the container starts
-CMD ["./app"]
+CMD ["./forum"]

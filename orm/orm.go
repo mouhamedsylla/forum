@@ -13,8 +13,8 @@ import (
 // The `InitDB` function is responsible for initializing the database connection and creating the
 // necessary files and directories for database migration.
 func (o *ORM) InitDB(name string) {
-	if _, err := os.Stat("./db"); os.IsNotExist(err) {
-		err := os.Mkdir("./db", 0775)
+	if _, err := os.Stat("../db"); os.IsNotExist(err) {
+		err := os.Mkdir("../db", 0775)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -22,21 +22,21 @@ func (o *ORM) InitDB(name string) {
 
 	_, err := os.Stat("../db/"+name)
 	if os.IsNotExist(err) {
-		file, err := os.Create("./db/"+name)
+		file, err := os.Create("../db/"+name)
 		if err != nil {
 			log.Fatal(err)
 		}
 		file.Close()
 	}
 
-	if _, err := os.Stat("./db/migrates"); os.IsNotExist(err) {
-		err := os.Mkdir("./db/migrates", 0755)
+	if _, err := os.Stat("../db/migrates"); os.IsNotExist(err) {
+		err := os.Mkdir("../db/migrates", 0755)
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
 
-	o.Db, err = sql.Open("sqlite3", "./db/"+name)
+	o.Db, err = sql.Open("sqlite3", "../db/"+name)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -73,7 +73,7 @@ func (o *ORM) AutoMigrate(tables ...interface{}) {
 		}
 
 		currentTime := time.Now()
-		fileName := fmt.Sprintf("./db/migrates/%s-create-table-%s.sql", currentTime.Format("2006-01-02-15-04-05"), v.Name())
+		fileName := fmt.Sprintf("../db/migrates/%s-create-table-%s.sql", currentTime.Format("2006-01-02-15-04-05"), v.Name())
 		file, err := os.Create(fileName)
 		if err != nil {
 			log.Fatal(err)
