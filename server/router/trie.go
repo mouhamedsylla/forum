@@ -41,6 +41,11 @@ func (t *Tree) Insert(path string, handler http.Handler, mid []Middleware, metho
 }
 
 func (t *Tree) Search(method string, path string) (http.Handler, []Middleware, error) {
+	if path != "/" {
+		if path[len(path)-1] == '/' {
+			path = path[:len(path)-1]
+		}	
+	}
 	actualRoute := t.node
 	if path != ROOT {
 		roads := strings.Split(path, "/")

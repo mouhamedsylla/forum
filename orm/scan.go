@@ -16,8 +16,6 @@ func (o *ORM) Scan(table interface{}, columns ...string) interface{} {
 	__BUILDER__.custom = o.Custom
 	query, param = __BUILDER__.Select(columns...).From(__table).Build()
 
-	fmt.Println("query: ", query)
-	fmt.Println("params: ", param)
 	rows, err := o.Db.Query(query, param...)
 	defer __BUILDER__.Clear()
 	if err != nil {
