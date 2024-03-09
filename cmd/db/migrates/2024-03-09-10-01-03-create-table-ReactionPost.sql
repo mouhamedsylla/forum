@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS ReactionPost (
+	Value TEXT ,
+	PostId INTEGER ,
+	User_id INTEGER ,
+	FOREIGN KEY (PostId) REFERENCES Post (Id),
+FOREIGN KEY (User_id) REFERENCES User (Id)
+)

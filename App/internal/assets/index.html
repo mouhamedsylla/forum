@@ -23,6 +23,8 @@
       <a class="create" href="/connect">
         <label class="btn btn-primary">Connect</label>
       </a>
+      <i class="uil uil-filter" id="icon-filter"  onclick="open1()">Filter</i>
+
     </div>
   </nav>
 
@@ -30,7 +32,9 @@
   <main>
     <div class="container">
       <!-- LEFT -->
-      <div class="left">
+      <div class="left" id="categorie-filt">
+        <span id="close-categorie" style="width: 100px; cursor: pointer;"  onclick="close1()">&times;</span>
+
         <div class="sidebar">
           <a class="menu-item active">
             <span><i class="uil uil-categories"></i></span>
@@ -68,6 +72,15 @@
 
         <label class="btn btn-primary" filterForm>Filter</label>
       </div>
+      <script>
+        function open1() {
+          document.getElementById("categorie-filt").style.display = "block";
+        }
+  
+        function close1() {
+          document.getElementById("categorie-filt").style.display = "none";
+        }
+      </script>
 
       <div class="middle">
         <div class="feeds" id="feeds">
@@ -89,7 +102,7 @@
             </div>
             <div class="action-buttons">
               <div class="interaction-buttons">
-                <span class="icon"><i class="uil uil-thumbs-up" id="liked-{{.Post.Id}}">{{.Post.Like}}</i></span>
+                <span class="icon" ><i class="uil uil-thumbs-up" id="liked-{{.Post.Id}}">{{.Post.Like}}</i></span>
                 <span class="icon"><i class="uil uil-thumbs-down"
                     id="disliked-{{.Post.Id}}">{{.Post.Dislike}}</i></span>
                 <input type="hidden" id="reaction-{{.Post.Id}}" value="">
@@ -100,11 +113,11 @@
                 <input type="hidden" id="state-{{.Post.Id}}" value="close">
               </div>
             </div>
-            <div class="liked-by">
+            <!-- <div class="liked-by">
               <span><img src="/assets/images/b.jpg" /></span>
               <span><img src="/assets/images/4.jpg" /></span>
               <p>Liked by <b>fatou diagne</b> and <b>2, 323 others</b></p>
-            </div>
+            </div> -->
             <div class="caption">
               <p id="typeCategorie-{{.Post.Id}}">
                 {{range .Categories}}

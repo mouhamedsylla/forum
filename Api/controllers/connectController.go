@@ -19,7 +19,7 @@ func (c *Controllers) Connection() http.Handler {
 				return
 			}
 		}
-		tmpl, err := template.ParseFiles("./App/internal/assets/connection.html")
+		tmpl, err := template.ParseFiles("../App/internal/assets/connection.html")
 
 		if err != nil {
 			message.Message = err.Error()

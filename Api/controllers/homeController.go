@@ -16,7 +16,7 @@ func (c *Controllers) Forum() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var message models.Message
 
-		tmpl, err := template.ParseFiles("./App/internal/assets/index.html")
+		tmpl, err := template.ParseFiles("../App/internal/assets/index.html")
 		if err != nil {
 			message.Error = err.Error()
 			DataError.Message = "page not found"
@@ -43,7 +43,7 @@ func (c *Controllers) Forum() http.Handler {
 func (c *Controllers) Home() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var message models.Message
-		tmpl, err := template.ParseFiles("./App/internal/assets/home.html")
+		tmpl, err := template.ParseFiles("../App/internal/assets/home.html")
 
 		if err != nil {
 			message.Error = err.Error()

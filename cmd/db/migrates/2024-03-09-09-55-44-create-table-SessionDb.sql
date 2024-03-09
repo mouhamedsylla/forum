@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS SessionDb (
+	SessionID TEXT NOT NULL UNIQUE,
+	User_Id INTEGER ,
+	TimeOut TEXT ,
+	FOREIGN KEY (User_Id) REFERENCES User (Id)
+)

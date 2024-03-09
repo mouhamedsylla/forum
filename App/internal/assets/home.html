@@ -23,8 +23,9 @@
       <div class="profile-photo">
         <img src="/assets/images/4.jpg"   onclick="w3_open()"/>
       </div>
+      <i class="uil uil-filter" id="icon-filter"  onclick="open1()">Filter</i>
+
     </div>
-    <i class="uil uil-filter" id="icon-filter"  onclick="open1()">Filter</i>
   </nav>
 
   <!-------------------------------- MAIN ----------------------------------->
@@ -47,14 +48,14 @@
             <label class="menu-item">
               <input type="radio" class="filterCreated" name="created" value="created-post" id="radio-created"/>
               <span><i class="uil uil-pen"></i></span>
-              Poste</label><br />
+              Post</label><br />
             <label class="menu-item">
               <input type="radio" class="filterCreated" name="created" value="post-liked" id="radio-liked"/>
               <span><i class="uil uil-thumbs-up"></i></span>
               liked</label><br />
               <label class="menu-item">
                 <input type="radio" class="filterCreated" name="created" value="none" id="radio-none"/>
-                <span><i class="uil uil-thumbs-up"></i></span>
+                <!-- <span><i class="uil uil-thumbs-up"></i></span> -->
                 None</label><br />
           </form>
 
@@ -73,7 +74,7 @@
             <label class="menu-item">
               <input type="checkbox" class="filtercategory" name="category" value="Genie logicielles" />
               <span><i class="uil uil-brackets-curly"></i></span>
-              Genie logicielles </label><br />
+              Software Engineering </label><br />
 
             <label class="menu-item">
               <input type="checkbox" class="filtercategory" name="category" value="Education" />
@@ -82,7 +83,7 @@
             <label class="menu-item">
               <input type="checkbox" class="filtercategory" name="category" value="Cuisine" />
               <span><i class="uil uil-utensils"></i></span>
-              Cuisine </label><br />
+              kitchen </label><br />
             <!-- <label class="menu-item">
               <input type="checkbox" class="filtercategory" name="category" value="Musique" />
               <span><i class="uil uil-music-note"></i></span>
@@ -160,7 +161,7 @@
               </div>
               <div class="bookmark">
 
-                <span><i class="uil uil-comment-dots" id="comment-{{.Post.Id}}"></i></span>
+                <span><i class="uil uil-comment-dots"  id="comment-{{.Post.Id}}"></i></span>
                 <input type="hidden" id="state-{{.Post.Id}}" value="close">
               </div>
             </div>
@@ -178,11 +179,11 @@
           {{end}}
           <!-- --------------------------------------------------------------------------------------------------------------- -->
           <!-- -----------------------------------------------------Comments-------------------------------------------------- -->
-          <div id="comments-container">
+          <div id="comments-container" >
             <div id="comments">
 
             </div>
-            <div style="position:relative;" class="comment-input">
+            <div style="position:relative;" class="comment-input" >
               <textarea name="comt" id="comment-text"></textarea>
               <span class="icon">
                 <i class="uil uil-message" commentaire></i>

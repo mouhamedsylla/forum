@@ -31,7 +31,7 @@ func (sm *SessionManager) CreateSession(user *models.User) *models.Session {
 	s := &models.Session{
 		SessionId: GenerateUUID(),
 		User:      user,
-		TimeOut:   time.Now().Add(50 * time.Minute),
+		TimeOut:   time.Now().Add(4 * time.Minute),
 	}
 	sm.Sessions[s.SessionId] = s
 	return s
