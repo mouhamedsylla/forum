@@ -1,0 +1,14 @@
+Features
+    -> Filter (faite)
+    -> Comment
+    -> Dockerize
+    -> Stocker les sessions dans la base de données (créer table Session) (faite)
+    -> Gestions des erreurs (ajouté les pages d'erreurs)
+    -> Responsivité 
+    -> Controler entrer utilisateur (faite)
+    -> LogOut (faite)
+    
+A réajuster
+    -> la redirection après l'inscription
+    -> imposer l'utilisateur à choirsir au moins une catégorie
+    -> notification d'erreur si l'email entrée lors de l'inscription existe déjà 

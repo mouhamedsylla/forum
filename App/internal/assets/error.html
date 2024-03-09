@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link rel="stylesheet" href="/assets/error.css " /> -->
+    <title>Error</title>
+</head>
+<body>
+    <div id="main">
+        <div id="msg">{{.Message}}</div>
+        <div id="error">
+            <div id="f1">{{.ErrorCode}}</div>
+        </div>
+        
+        <div id="btn" onclick="goBack()">Back</div>
+    </div>
+    <style>
+        body{
+	margin: 0px;
+	padding: 0px;
+	background: radial-gradient(circle,#158AB2 0%,#1F2A77 20%,#111742 35%,#0D071A 80%);
+	width:100%;
+	height:800px;
+}
+#main{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:  translate(-50%,-10%);
+}
+#msg{
+	font-family: cursive;
+	font-size: 25px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 0 10px rgba(255,255,255,.8);
+}
+#error{
+	display: table;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#f1{
+	font-family: cursive;
+	font-size: 100px;
+	color: white;
+	text-shadow: 0 0 10px rgba(255,255,255,.7);
+	display: table-cell;
+}
+#btn{
+	cursor: pointer;
+	height: 30px;
+	width: 120px;
+	color: white;
+	background-color: #ee591e;
+	font-family: monospace;
+	font-size: 13px;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 15px;
+	position: relative;
+	margin-top: 10px;
+	left: 50%;
+	transform: translateX(-50%); 
+}
+    </style>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

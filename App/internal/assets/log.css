@@ -1,0 +1,231 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+:root {
+  --primary-color-hue: 400;
+  --dark-color-lightness: 17%;
+  --light-color-lightness: 95%;
+  --white-color-lightness: 100%;
+
+  --color-white: hsl(252, 30%, var(--white-color-lightness));
+  --color-light: hsl(252, 30%, var(--light-color-lightness));
+  --color-grey: hsl(252, 15%, 65%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+  /* --color-secondary: hsl(252, 100%, 90%); */
+  --color-success: hsl(120, 95%, 65%);
+  --color-danger: hsl(0, 95%, 65%);
+  --color-dark: hsl(252, 30%, var(--dark-color-lightness));
+  --color-black: hsl(252, 30%, 10%);
+
+  --border-radius: 2rem;
+  --card-border-radius: 1rem;
+  --btn-padding: 0.6rem 2rem;
+  --search-padding: 0.6rem 1rem;
+  --card-padding: 1rem;
+
+  --sticky-top-left: 5.4rem;
+  --sticky-top-right: -18rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* background-image: url(login/c.jpg); */
+    
+}
+.section{
+    /* padding: var(--search-padding); */
+    height: 100vh;
+    width: 100%;
+   background-color: var(--color-grey);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.form-box{
+    width: 90%;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    max-width: 380px;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 40px 0;
+}
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px; 
+}
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 30px;
+    transition: .5s;
+}
+.social-icons{
+    margin: 30px auto;
+    text-align: center;
+}
+.social-icons img{
+    width: 30px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.input-group{
+    left: O;
+    width: 100%;
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+   
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+
+}
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 50px auto;
+    align-items: center;
+    background-color: var(--color-primary);
+  color: var(--color-black);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    color: var(--color-black);
+}
+.check-box{
+    margin: 30px 10px 30px 0;
+}
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+
+}
+
+#login{
+    left: 50px;
+}
+#register{ 
+    left: 450px;
+}
+img{
+ margin-top: 100px;
+width: 600px;
+ float: left;
+ align-items: center;
+}
+body h1{
+    text-align: center;
+}
+
+ #errorLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    display: none;
+} 
+
+#errorLogin > p {
+    text-align: center;
+}
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password {
+    cursor: pointer;
+    right: 20px;
+    
+}
+@media screen and (max-width: 768px) {
+    .form-box {
+        width: 80%;
+    }
+    .submit-btn {
+        flex-direction: column;
+  
+      }
+}
+
+/* Réorganiser l'image et le formulaire pour les écrans plus petits */
+@media screen and (max-width: 576px) {
+    
+    .section {
+        flex-direction: column;
+    }
+
+    img {
+        display: none;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+
+/* Placeholder */
+.input-field::placeholder {
+    font-size: 0.8em; 
+    line-height: 0; /
+}
+
+}
+
+
+/* Réorganiser l'image et le formulaire pour les écrans plus petits */
+@media screen and (max-width: 576px) {
+    .section {
+        flex-direction: column; 
+    }
+
+    .form-box {
+        width: 90%; 
+    }  
+    .input-group {
+        width: 90%; 
+        max-width: 100%; 
+        align-items: center;
+    } 
+}
+

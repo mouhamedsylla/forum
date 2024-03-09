@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/home.css " />
+  <script src="/assets/wasm_exec.js"></script>
+  <script src="/assets/script.js"></script>
+  <title>page d'acceuil forum</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" />
+</head>
+
+<body load>
+  <nav>
+    <div class="container">
+      <h2 class="logo"><i>FORUM</i></h2>
+      <div class="search-bar">
+        <i class="uil uil-search"></i>
+        <input type="search" placeholder="find your categorie" />
+      </div>
+      <a class="create" href="/connect">
+        <label class="btn btn-primary">Connect</label>
+      </a>
+    </div>
+  </nav>
+
+  <!-------------------------------- MAIN ----------------------------------->
+  <main>
+    <div class="container">
+      <!-- LEFT -->
+      <div class="left">
+        <div class="sidebar">
+          <a class="menu-item active">
+            <span><i class="uil uil-categories"></i></span>
+            <h3>CATEGORIES</h3>
+          </a>
+          <form id="filterForm">
+            <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Informatique" />
+              <span><i class="uil uil-laptop"></i></span>
+              Informatique </label><br />
+
+            <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Genie logicielles" />
+              <span><i class="uil uil-brackets-curly"></i></span>
+              Genie logicielles </label><br />
+
+            <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Education" />
+              <span><i class="uil uil-book-alt"></i></span>
+              Education </label><br />
+            <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Cuisine" />
+              <span><i class="uil uil-utensils"></i></span>
+              Cuisine </label><br />
+            <!-- <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Musique" />
+              <span><i class="uil uil-music-note"></i></span>
+              Musique </label><br />
+            <label class="menu-item">
+              <input type="checkbox" class="filtercategory" name="category" value="Loisirs" />
+              <span><i class="uil uil-pen"></i></span>
+              Loisirs </label><br /> -->
+          </form>
+        </div>
+
+        <label class="btn btn-primary" filterForm>Filter</label>
+      </div>
+
+      <div class="middle">
+        <div class="feeds" id="feeds">
+          {{range .Posts}}
+          <div class="feed" id="post-{{.Post.Id}}">
+            <div class="head">
+              <div class="user">
+                <div class="profile-photo">
+                  <img src="/assets/images/4.jpg" />
+                </div>
+                <div class="info">
+                  <h3 id="name-{{.Post.Id}}">{{.User.Username}}</h3>
+                  <small>sénégal, {{.Post.CreatedAt}}</small>
+                </div>
+              </div>
+            </div>
+            <div class="photo">
+              {{.Post.Content}}
+            </div>
+            <div class="action-buttons">
+              <div class="interaction-buttons">
+                <span class="icon"><i class="uil uil-thumbs-up" id="liked-{{.Post.Id}}">{{.Post.Like}}</i></span>
+                <span class="icon"><i class="uil uil-thumbs-down"
+                    id="disliked-{{.Post.Id}}">{{.Post.Dislike}}</i></span>
+                <input type="hidden" id="reaction-{{.Post.Id}}" value="">
+              </div>
+              <div class="bookmark">
+
+                <span><i class="uil uil-comment-dots" id="comment-{{.Post.Id}}"></i></span>
+                <input type="hidden" id="state-{{.Post.Id}}" value="close">
+              </div>
+            </div>
+            <div class="liked-by">
+              <span><img src="/assets/images/b.jpg" /></span>
+              <span><img src="/assets/images/4.jpg" /></span>
+              <p>Liked by <b>fatou diagne</b> and <b>2, 323 others</b></p>
+            </div>
+            <div class="caption">
+              <p id="typeCategorie-{{.Post.Id}}">
+                {{range .Categories}}
+                {{.Name}}
+                {{end}}
+              </p>
+            </div>
+
+            
+          </div>
+          {{end}}
+                    <!-- -----------------------------------------------------Comments-------------------------------------------------- -->
+                    <div id="comments-container">
+                      <div id="comments">
+          
+                      </div>
+                      <div id="comt"></div>
+                      </div>
+                    </div>
+                    <!-- ----------------------------------------------------------------------------------------------------------------- -->
+                  </div>
+<div class="right">
+        <img src="/assets/images/sv2.svg" alt="Description de l'image"
+          style="height: 500px; width: 400px; position: fixed;">
+      </div>
+
+        </div>
+        
+      </div>
+
+
+      
+    </div>
+  </main>
+</body>
+
+</html>

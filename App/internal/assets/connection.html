@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Registration</title>
+  <link rel="stylesheet" href="/assets/log.css" />
+  <script src="/assets/wasm_exec.js"></script>
+  <script src="/assets/script.js"></script>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" />
+</head>
+
+<body>
+  <div class="section">
+    <img src="/assets/images/sg.svg" alt="Description de l'image" />
+    <!-- Form-->
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="login()">
+          Login
+        </button>
+        <button type="button" class="toggle-btn" onclick="register()">
+          Register
+        </button>
+      </div>
+      <form id="login" class="input-group">
+        <input type="email" class="input-field" placeholder="Email " required id="userlog" />
+        <div class="password-container">
+          <input type="password" class="input-field" placeholder="Enter Password" required id="userpass" />
+          <span class="toggle-password" onclick="togglePasswordVisibility()">
+            <i class="uil uil-eye" style="
+              content: '\e9d8';
+              position: absolute;
+              bottom: 70px;"></i>
+          </span>
+        </div>
+        <button type="submit" class="submit-btn" login>Log in</button>
+      </form>
+      <div id="errorLogin"></div>
+
+      <form id="register" class="input-group">
+        <input type="text" class="input-field" placeholder="User" id="user" required inputValidate username />
+        <input type="email" class="input-field" placeholder="Email" id="email" required inputValidate email />
+        <div class="password-container">
+          <input type="password" class="input-field" placeholder="Enter Password" id="password" required inputValidate
+            password />
+          <span class="toggle-password-register" onclick="togglePasswordVisibility()">
+            <i class="uil uil-eye" style="
+                content: '\e9d7';
+    right: auto;
+    position: absolute;
+    bottom: 90px;
+    left: 250px;"></i>
+          </span>
+        </div>
+        <br />
+        <button type="submit" class="submit-btn" register>Register</button>
+      </form>
+    </div>
+  </div>
+  <!-- JavaScript Part -->
+  <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    // Register and login Function.
+    function register() {
+      x.style.left = "-400px";
+      y.style.left = "50px";
+      z.style.left = "110px";
+    }
+    function login() {
+      x.style.left = "50px";
+      y.style.left = "450px";
+      z.style.left = "0px";
+    }
+    function togglePasswordVisibility() {
+      var passwordField = document.getElementById("userpass");
+      var eyeIcon = document.querySelector(".toggle-password i");
+      var eyeIcon = document.querySelector(".toggle-password-register i");
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("uil-eye");
+        eyeIcon.classList.add("uil-eye-slash");
+      } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("uil-eye-slash");
+        eyeIcon.classList.add("uil-eye");
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
