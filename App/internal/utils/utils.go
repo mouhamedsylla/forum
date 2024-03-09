@@ -14,12 +14,10 @@ import (
 
 var (
 	Forum_Categories = map[string]bool{
-		"Informatique":      true,
-		"Genie logicielles": true,
-		"Education":         true,
-		"Cuisine":           true,
-		"Loisirs":           true,
-		"Musique":           true,
+		"Informatique":         true,
+		"Software Engineering": true,
+		"Education":            true,
+		"kitchen":              true,
 	}
 )
 

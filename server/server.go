@@ -26,7 +26,7 @@ func (s *Server) SessionDataInit() {
 func (s *Server) ConfigureRoutes() {
 	controllers := controllers.NewControllers()
 	controllers.PostInfos()
-	s.Router.SetDirectory("/assets/", "../App/internal/assets/")
+	s.Router.SetDirectory("/assets/", "./App/internal/assets/")
 	s.Router.Method(http.MethodGet).Handler("/assets/", s.Router.StaticServe())
 	s.Router.Method(http.MethodGet).Handler("/", controllers.Forum())
 	s.Router.Method(http.MethodPost).Handler("/login", controllers.Login())
